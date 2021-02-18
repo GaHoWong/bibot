@@ -328,7 +328,7 @@
       <GroupNumber>3</GroupNumber>
       <FileNumber>4</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\SYSTEM\sys\sys.c</PathWithFileName>
@@ -340,7 +340,7 @@
       <GroupNumber>3</GroupNumber>
       <FileNumber>5</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\SYSTEM\usart\usart.c</PathWithFileName>
@@ -423,8 +423,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Hardware\LED\led.C</PathWithFileName>
-      <FilenameWithoutPath>led.C</FilenameWithoutPath>
+      <PathWithFileName>..\Hardware\MPU6050\MPU6050.c</PathWithFileName>
+      <FilenameWithoutPath>MPU6050.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -435,8 +435,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Hardware\MPU6050\MPU6050.c</PathWithFileName>
-      <FilenameWithoutPath>MPU6050.c</FilenameWithoutPath>
+      <PathWithFileName>..\Hardware\LED\led.c</PathWithFileName>
+      <FilenameWithoutPath>led.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\OBJ\Bibot.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\Bibot.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri Feb 19 00:15:33 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri Feb 19 00:20:18 2021
 <BR><P>
 <H3>Maximum Stack Usage =        280 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -708,14 +708,6 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[52]"></a>LED_Init</STRONG> (Thumb, 52 bytes, Stack size 0 bytes, led.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[b4]"></a>Led_Flash</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, led.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI15_10_IRQHandler
-</UL>
-
 <P><STRONG><a name="[16c]"></a>MPU6050_newValues</STRONG> (Thumb, 494 bytes, Stack size 28 bytes, mpu6050.o(.text), UNUSED)
 
 <P><STRONG><a name="[84]"></a>MPU6050_setClockSource</STRONG> (Thumb, 20 bytes, Stack size 16 bytes, mpu6050.o(.text))
@@ -841,6 +833,14 @@ Global Symbols
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 </UL>
 
+<P><STRONG><a name="[52]"></a>LED_Init</STRONG> (Thumb, 52 bytes, Stack size 0 bytes, led.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[b4]"></a>Led_Flash</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, led.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI15_10_IRQHandler
+</UL>
+
 <P><STRONG><a name="[a7]"></a>myabs</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, control.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_RC
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Set_Pwm
@@ -952,8 +952,8 @@ Global Symbols
 <LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Xianfu_Pwm
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Turn_Off
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Set_Pwm
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_DMP
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Led_Flash
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_DMP
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_Encoder
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f

@@ -488,14 +488,14 @@
               <FilePath>..\HARDWARE\EXTI\exti.c</FilePath>
             </File>
             <File>
-              <FileName>led.C</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Hardware\LED\led.C</FilePath>
-            </File>
-            <File>
               <FileName>MPU6050.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Hardware\MPU6050\MPU6050.c</FilePath>
+            </File>
+            <File>
+              <FileName>led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\LED\led.c</FilePath>
             </File>
           </Files>
         </Group>

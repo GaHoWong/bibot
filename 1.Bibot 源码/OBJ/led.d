@@ -1,4 +1,4 @@
-..\obj\led.o: ..\Hardware\LED\led.C
+..\obj\led.o: ..\Hardware\LED\led.c
 ..\obj\led.o: ..\Hardware\LED\led.h
 ..\obj\led.o: ..\SYSTEM\sys\sys.h
 ..\obj\led.o: ..\SYSTEM\sys\stm32f10x.h
