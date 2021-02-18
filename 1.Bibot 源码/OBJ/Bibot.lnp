@@ -1,0 +1,26 @@
+--cpu Cortex-M3
+"..\obj\startup_stm32f10x_md.o"
+"..\obj\bibot.o"
+"..\obj\delay.o"
+"..\obj\sys.o"
+"..\obj\usart.o"
+"..\obj\key.o"
+"..\obj\oled.o"
+"..\obj\motor.o"
+"..\obj\encoder.o"
+"..\obj\exti.o"
+"..\obj\led.o"
+"..\obj\mpu6050.o"
+"..\obj\control.o"
+"..\obj\inv_mpu.o"
+"..\obj\inv_mpu_dmp_motion_driver.o"
+"..\obj\filter.o"
+"..\obj\show.o"
+"..\obj\datascope_dp.o"
+"..\obj\usartx.o"
+"..\obj\adc.o"
+"..\obj\iic.o"
+--strict --scatter "..\OBJ\Bibot.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "..\OBJ\Bibot.map" -o ..\OBJ\Bibot.axf
