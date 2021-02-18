@@ -1873,7 +1873,7 @@
         <PaneID>0</PaneID>
       </Doc>
       <Doc>
-        <Name>E:\Data\Self-balancing bicycle robot\1.Bibot 源码\SYSTEM\sys\sys.h</Name>
+        <Name>..\SYSTEM\sys\sys.h</Name>
         <ColumnNumber>12</ColumnNumber>
         <TopLine>63</TopLine>
         <CurrentLine>76</CurrentLine>
@@ -1891,7 +1891,7 @@
         <PaneID>0</PaneID>
       </Doc>
       <Doc>
-        <Name>E:\Data\Self-balancing bicycle robot\1.Bibot 源码\Basic\IIC\iic.h</Name>
+        <Name>..\Basic\IIC\iic.h</Name>
         <ColumnNumber>16</ColumnNumber>
         <TopLine>1</TopLine>
         <CurrentLine>3</CurrentLine>
