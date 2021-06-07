@@ -1,0 +1,181 @@
+//------------------------------------------------------------------------
+//  Tips.txt
+//------------------------------------------------------------------------
+
+//------------------------------------------------------------------------
+//  Changing the Derivative
+//------------------------------------------------------------------------
+If you would like to change the existing derivative with a different one,
+you have to consider following points:
+- You will need to adapt the CodeWarrior project settings: In the 'Assembler for
+  HC12' and 'Compiler for HC12' panels make sure that the new CPU will be used
+  in the 'Command Line Arguments':
+  - HC12:   -CpuHC12
+  - HCS12:  -CpuHCS12
+  - HCS12X: -CpuHCS12X
+- The derivative header and source files are located in the following directories:
+  - {CodeWarrior}lib\hc12c\include (derivative header files)
+  - {CodeWarrior}lib\hc12c\src (derivative source files)
+  You will need to drag and drop from the directories above the new derivative
+  header and source files to the 'Libraries' group.
+  HINT: To open a 'Windows Explorer' where the file is located:
+        Use the context menu/right mouse click on
+        the derivative header/source file in the 'Libraries' project folder
+        and select 'Open in Windows Explorer'.
+- You can now remove the derivative header and source files that are referenced
+  by the wizard from the project. Remove the derivative header and source files
+  in the 'Libraries' group: context menu/right mouse click on the derivative header
+  and source files in the 'Libraries' group and select 'Remove'.
+- You will need to adapt the main source file. This file can be found in the
+  'Sources' group. Open this file and change the name of the included
+  derivative header file to the new one. In case of a C/C++ project you will
+  also need to adapt the pragma 'LINK_INFO DERIVATIVE' to the new derivative.
+  This pragma tells the simulator which derivative to simulate. However you can
+  also remove this pragma and setup the new derivative in the HI-WAVE debugger
+  itself (see next point).
+- You will need to adapt the PRM file as well. PRM files are located in the
+  following directory:
+  - {CodeWarrior}lib\hc12c\prm
+  You need to open the new PRM file and copy & past the content to your currently
+  used PRM file. In case you don not have a banked memory model, you will need to
+  adapt the content as well. You may have a look at the existing prm file.
+- After successful compilation and linkage you can start the HI-WAVE debugger.
+  You will need to setup the debugger for the new derivative.
+  - For the Full Chip Simulation\Simulator Connection:
+    Use the 'Set Derivative...' dialog by using the menu option
+    'Simulator' > 'Set Derivative...'. In the opened dialog box you can
+    select the new derivative. The names used there might also be used
+    with the pragma 'LINK_INFO DERIVATIVE'.
+  - For the P&E Multilink/Cyclone Pro Connection:
+    Use the 'Set Derivative...' dialog by using the menu option
+    'MultilinkCyclonePro' > 'Set Derivative...'. In the opened dialog box you can
+    select the new derivative. 
+  - For the SofTec HCS12 Connection:
+    Use the 'MCU Configuration' dialog by using the menu option
+    'inDART-HCS12' > 'MCU Configuration'. In the opened dialog box you can
+    select the new derivative. 
+  - For the HCS12 Serial Monitor target:
+    The derivative is determined automatically from the connected hardware.
+    However, the debugger might still display a list of parts where a thinner 
+    selection between silicons from the same family should be done.
+- Now you should have a project for the new derivative.
+
+//------------------------------------------------------------------------
+//  Enabling Processor Expert
+//------------------------------------------------------------------------
+If you decided not to enable Processor Expert during the project creation,
+you can do this later as well. However, you have to consider following points:
+- Processor Expert supports C or C++ projects, it does not support absolute
+  assembly or relocatable assembly projects.
+- Processor Expert is not supported for all derivatives.
+- Enable Processor Expert using the menu
+  Processor Expert > Enable Processor Expert for <projectName>
+- A dialog will ask you if you want to enable Processor Expert for the project:
+  click on 'Yes'.
+- Then you need to select the correct CPU bean for your project. Do so with
+  the bean selector (menu Processor Expert > View > Bean Selector) and
+  double click on the desired CPU bean in the CPU tree. This will add the
+  CPU bean to your project.
+- As Processor Expert is generating it's own 'main' function/source file, you need to
+  remove the one created by the wizard from the project. Remove the main file
+  in the 'Sources': context menu/right mouse click on the main file in the 'Sources'
+  project folder and select 'Remove'.
+- Same applies to the derivative header file. Processor Expert maintains it's own version,
+  so you need to remove them from the CodeWarrior project: You find the .c and .h file
+  in the 'Libs' project folder: context menu/right mouse click and select 'Delete' to
+  have the .h and the .c file removed.
+- Processor Expert maintains as well its own linker .prm file. You need to remove the
+  one added to the project by the wizard in the 'Prm' project folder by context menu/right
+  mouse click and selecting 'Remove'.
+- Now you can build/make your project as usually (menu Project > Make).
+
+//------------------------------------------------------------------------
+//  Changing the Memory Model
+//------------------------------------------------------------------------
+If you would like to change the existing memory model with a different one,
+you have to consider following points:
+- The memory model only controls the defaults. It is possible to write any kind
+  of application in any memory model, choosing the wrong one just causes that 
+  more code adaptations are necessary.
+- The large memory model generates considerably more and slower code than the banked
+  or small memory model. Check first if you could not code the functionality in the 
+  other models.
+  The difference between the banked and the small memory model is not so significant.
+- You will need to adapt the CodeWarrior project settings: In the 'Assembler for
+  HC12' and 'Compiler for HC12' panels make sure that the new memory model will
+  be used in the 'Command Line Arguments':
+  - Small memory model:  -ms
+  - Banked memory model: -mb
+  - Large memory model:  -ml
+- You need to change the standard libraries. The library files are located in
+  the following directory:
+  - {CodeWarrior}lib\hc12c\lib (HC12)
+  - {CodeWarrior}lib\xgatec\lib (optional for a XGATE project)
+- You will need to drag and drop from the directories above the new library files
+  to the 'Libraries' project folder. For the naming schema please have a look to
+  the following readme.txt:
+  - {CodeWarrior}lib\hc12c\readme.txt (HC12)
+  - {CodeWarrior}lib\xgatec\readme.txt (optional for a XGATE project)
+- You can now remove the old library files that are referenced by the wizard from
+  the project. Remove the old library files in the 'Libraries': context menu/right
+  mouse click on the library files in the 'Libraries' project folder and select
+  'Remove'.
+- The prm file has to be adapted to the new memory model.
+  Every memory model has its constraints how the DEFAULT_ROM, DEFAULT_RAM, NON_PAGED 
+  and the other default sections have to be allocated.
+  - DEFAULT_ROM: must be in non paged area in the small memory model. 
+    Can be on any PPAGE area in the banked and the large memory model.
+  - DEFAULT_RAM: must be in non paged RAM in the small and banked memory model.
+  - STARTUP, STRINGS, ROM_VAR, COPY. In the small and banked memory models, 
+    they most be in the non banked flash area. COPY must be the last in the list.
+  - check all the remaining sections how they are used. If in doubt, 
+    allocate them non banked.
+- Now you should have a project for the new memory model.
+
+//------------------------------------------------------------------------
+//  Appending an additional connection
+//------------------------------------------------------------------------
+If you missed to add a specific connection during the project creation,
+you can do this later as well. However, you have to consider following points:
+- Within your project choose the 'Target' tab and use the menu
+  'Project' > 'Create Target...'. In this dialog enter the new
+  connection name and choose 'Clone existing target'. You may choose any existing
+  target.
+- Select the newly created target. We need now to prepare the
+  debugger. Use the menu 'Project' > 'Set Default Target' to select the created target.
+- In case you need a different memory mapping for that specific connection
+  (e.g. 'Serial Monitor'), 
+  you will need to add the modified prm file to the project. Make
+  sure that the new .prm file is selected in the target. Make sure the new prm file
+  has the bullet set in the target column in the project window. Also make sure that
+  the existing prm file has no bullet.
+- The debugger configuration files (.ini) are located in the '{Project}' directory.
+  You will need to copy an existing '.ini' file to the same path. For the file
+  name use the connection name. You can now drag and drop the ini file to
+  'Debugger Project File'.
+- You will need to adapt the 'Arguments' option in the 'CodeWarrior' project setting
+  panel 'Build Extras'. Replace the '.ini' file name with the new one.
+  Optional: In the same option line replace the '-instance=x' with '-instance=y',
+  where y is the new connection. The -instance options makes sure that only one debugger
+  instance is open for a certain connection.
+- We need now to setup the debugger. You can do this by starting the debugger. 
+  In the debugger dialog 'Component' > 'Set Connection...' you can choose the connection.
+  - For the Full Chip Simualtion\Simulator Connection:
+    Use Processor= HC12 and Connection= Full Chip Simulation
+  - For the P&E Multilink/Cyclone Pro Connection:
+    Use Processor= HC12 and Connection= P&E Multilink/Cyclone Pro
+  - For the SofTec HCS12 Connection:
+    Use Processor= HC12 and Connection= SofTec HCS12
+  - For the HCS12 Serial Monitor Connection:
+    Use Processor= HC12 and Connection= HCS12 Serial Monitor
+- Optional: In case you need 'Command Files', you can create empty files in the '{Project}cmd'
+  directory. In the debugger you can use the 'Command Files...' dialog in the Connection
+  menu to adapt the debugger.
+- Now you have a new connection in the project.
+
+//------------------------------------------------------------------------
+//  Contacting Metrowerks
+//------------------------------------------------------------------------
+For bug reports, technical questions, and suggestions, please use the
+forms installed in the Release_Notes folder and send them to:
+cw_support@freescale.com
